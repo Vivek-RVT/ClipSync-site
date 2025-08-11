@@ -1,0 +1,54 @@
+You are building a production-ready, premium landing website for a cross-platform app named "ClipSync" (secure clipboard manager). Create a complete Vite + React project (JavaScript) using Tailwind CSS v3 (no native oxide binaries). Follow these requirements:
+
+1) Tech stack & build:
+- Vite + React, TailwindCSS v3.4.1, PostCSS, autoprefixer.
+- Optional UI kit: include DaisyUI for ready components (but keep Tailwind custom-first).
+- Project must run with `npm install` and `npm run dev` and build with `npm run build`.
+- Provide `README.md` with setup and deploy steps.
+
+2) Pages & routes (React Router optional):
+- Home/Landing (hero, 3–4 feature cards, CTA, trust/companies section).
+- Features (detailed features: encryption, search, history, password protection, timestamps, cross-platform).
+- Download (links for Linux, Windows, Android, Coming-soon Mac).
+- Security & Privacy (explain encryption, local-first, password protection).
+- Pricing (Free vs Pro with benefits).
+- Docs / FAQ.
+- Contact / Newsletter signup (Mailchimp or simple netlify form).
+
+3) Design & UX:
+- Premium, minimal, fast-load feel: big hero, clean typography, generous white space, subtle shadows, 2xl rounded cards.
+- Dark mode by default with toggle (persist preference to localStorage).
+- Use Google Fonts (one heading, one body). Load fonts efficiently.
+- Use Heroicons / simple SVG icons. No heavy component libraries.
+- Provide reusable components: Navbar (center/left logo + right CTAs), Footer, FeatureCard, PricingCard, Modal (download).
+- Mobile-first responsive layout and accessible semantics (aria, alt tags, keyboard focus outlines).
+
+4) Performance & SEO:
+- Tailwind purge/content set to `./index.html` & `./src/**/*.{js,jsx,ts,tsx}`.
+- Add SEO meta tags, Open Graph, Twitter card, canonical url placeholders.
+- Include `sitemap.xml`, `robots.txt`.
+- Use preconnect for Google Fonts, prefetch/rel=preload for hero image.
+- Optimize images: include SVGs and a small hero webp, use `loading="lazy"` for non-critical images.
+- Inline critical CSS for hero to improve LCP (or ensure Tailwind build extracts above-the-fold styles).
+
+5) Accessibility:
+- Semantic HTML, skip-to-content link, focus-visible outlines, color contrast ≥ AA, keyboard navigable components.
+- Lighthouse target: Accessibility >= 90, Performance >= 90, Best Practices >= 90.
+
+6) Security & trust:
+- Show how ClipSync encrypts data (AES-256 or libs) with short pseudocode example on the Security page (do not implement server-side secret storage).
+- Add a simple privacy note and GDPR-friendly newsletter opt-in checkbox.
+
+7) Devops & extras:
+- Provide `netlify.toml` and/or instructions for Vercel + Replit deploy.
+- Add `package.json` scripts: dev, build, preview, lint.
+- Add a lightweight GA placeholder and instructions for adding analytics.
+- Provide README with Lighthouse test commands and checklist.
+
+8) Deliverables:
+- Complete repo structure, working dev server, build output.
+- `README.md` with steps and a short marketing copy for the hero.
+- Demo screenshot or instructions to generate one.
+- Small sample copy for hero + features + pricing.
+
+Make the UI modern, premium, and fast. Keep bundle small and code clean with comments. Return the project file tree and the key files' contents (package.json, vite.config, tailwind.config, postcss.config, src/main.jsx, src/index.css, src/App.jsx, src/components/*, public/index.html, sitemap.xml, robots.txt, README.md). 
