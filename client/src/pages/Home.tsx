@@ -38,119 +38,100 @@ export default function Home() {
   const features = [
     {
       icon: Shield,
-      title: "Military-Grade Encryption",
-      description: "Your clipboard data is protected with AES-256 encryption. Every item is encrypted locally before storage.",
+      title: "Password-Protected & Private",
+      description: "Your clipboard data is encrypted with your own password and stored locally in ~/.clip_sync/. 100% offline, your data never leaves your device.",
       gradient: "from-primary to-accent-blue",
       extra: (
         <Card className="bg-card/50 rounded-xl p-4 border border-border">
           <code className="text-sm text-accent-blue">
-            AES.encrypt(clipboardData, userKey)
+            ~/.clip_sync/ (encrypted, local storage)
+          </code>
+        </Card>
+      ),
+    },
+    {
+      icon: History,
+      title: "Auto-Save Everything",
+      description: "Automatically saves everything you copy in the background. Silent restore via terminal commands - access your 2nd, 3rd, or any previous clipboard item instantly.",
+      gradient: "from-accent-purple to-accent-blue",
+      extra: (
+        <Card className="bg-card/50 rounded-xl p-4 border border-border">
+          <code className="text-sm text-accent-blue">
+            python3 ~/.clip_sync/clipboard_logger.py --paste 2
+          </code>
+        </Card>
+      ),
+    },
+    {
+      icon: Search,
+      title: "Clean GUI Viewer",
+      description: "Beautiful, intuitive interface for viewing, searching, and filtering your clipboard history. Find anything instantly with powerful search.",
+      gradient: "from-accent-gold to-primary",
+      extra: (
+        <Card className="bg-card/50 rounded-xl p-3 border border-border">
+          <code className="text-sm text-accent-blue">
+            python3 ~/.clip_sync/viewer_gui.py
           </code>
         </Card>
       ),
     },
     {
       icon: FolderSync,
-      title: "Cross-Platform FolderSync",
-      description: "Seamlessly sync your clipboard across Windows, macOS, Linux, Android, and iOS devices in real-time.",
-      gradient: "from-accent-purple to-accent-blue",
-      extra: (
-        <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-accent-blue/20 rounded-lg flex items-center justify-center">
-            <span className="text-accent-blue text-sm">W</span>
-          </div>
-          <div className="w-8 h-8 bg-muted/50 rounded-lg flex items-center justify-center">
-            <span className="text-muted-foreground text-sm">M</span>
-          </div>
-          <div className="w-8 h-8 bg-accent-gold/20 rounded-lg flex items-center justify-center">
-            <span className="text-accent-gold text-sm">L</span>
-          </div>
-          <div className="w-8 h-8 bg-green-400/20 rounded-lg flex items-center justify-center">
-            <span className="text-green-400 text-sm">A</span>
-          </div>
-        </div>
-      ),
-    },
-    {
-      icon: Search,
-      title: "Intelligent Search",
-      description: "Find any clipboard item instantly with AI-powered search. Search by content, type, date, or custom tags.",
-      gradient: "from-accent-gold to-primary",
-      extra: (
-        <Card className="bg-card/50 rounded-xl p-3 border border-border">
-          <div className="flex items-center space-x-2 text-sm">
-            <Search className="w-4 h-4 text-muted-foreground" />
-            <span className="text-muted-foreground">password reset email...</span>
-          </div>
-        </Card>
-      ),
-    },
-    {
-      icon: History,
-      title: "Unlimited History",
-      description: "Never lose important clipboard data again. Store unlimited items with smart organization and auto-cleanup options.",
+      title: "Cross-Platform Support",
+      description: "Works seamlessly on Linux, macOS, and Windows. Uses Python with simple dependencies - just pip install and you're ready to go.",
       gradient: "from-green-500 to-accent-blue",
       extra: (
-        <div className="space-y-2">
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-muted-foreground">Items stored</span>
-            <span className="text-accent-gold font-semibold">2,847</span>
-          </div>
-          <div className="w-full bg-card rounded-full h-2">
-            <div className="bg-gradient-to-r from-accent-gold to-primary h-2 rounded-full w-3/4"></div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      icon: Lock,
-      title: "Secure Vault",
-      description: "Protect sensitive data with password-protected vaults. Biometric authentication and auto-lock features included.",
-      gradient: "from-red-500 to-accent-purple",
-      extra: (
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
-            <span className="text-green-400 text-sm">🔒</span>
+          <div className="w-8 h-8 bg-accent-gold/20 rounded-lg flex items-center justify-center">
+            <span className="text-accent-gold text-sm">🐧</span>
           </div>
-          <span className="text-sm text-muted-foreground">Biometric unlock</span>
+          <div className="w-8 h-8 bg-muted/50 rounded-lg flex items-center justify-center">
+            <span className="text-muted-foreground text-sm">🍎</span>
+          </div>
+          <div className="w-8 h-8 bg-accent-blue/20 rounded-lg flex items-center justify-center">
+            <span className="text-accent-blue text-sm">🪟</span>
+          </div>
         </div>
       ),
     },
     {
       icon: Clock,
-      title: "Smart Timestamps",
-      description: "Detailed tracking of when and where each item was copied. Perfect for workflow auditing and productivity analysis.",
-      gradient: "from-accent-blue to-primary",
+      title: "Auto-Start on Boot",
+      description: "Set up ClipSync to automatically start when your computer boots. Run silently in the background, capturing everything you copy.",
+      gradient: "from-red-500 to-accent-purple",
       extra: (
-        <div className="text-sm text-muted-foreground space-y-1">
-          <div>📅 Today, {currentTime.toLocaleTimeString()}</div>
-          <div>💻 Current Device</div>
-          <div>🌐 React App</div>
-        </div>
+        <Card className="bg-card/50 rounded-xl p-3 border border-border">
+          <code className="text-sm text-accent-blue">
+            ~/.config/autostart/ClipboardSaver.desktop
+          </code>
+        </Card>
       ),
     },
   ];
 
   const pricingPlans = [
     {
-      name: "Free",
+      name: "Free & Open Source",
       price: "$0",
-      description: "Perfect for personal use",
+      description: "100% free forever - created by Vivek Rawat (RVT)",
       features: [
-        { name: "50 clipboard items", included: true },
-        { name: "Basic encryption", included: true },
-        { name: "Local storage only", included: true },
-        { name: "Basic search", included: true },
-        { name: "Cross-device sync", included: false },
-        { name: "Advanced features", included: false },
+        { name: "Unlimited clipboard items", included: true },
+        { name: "Password encryption", included: true },
+        { name: "Local offline storage", included: true },
+        { name: "Cross-platform support", included: true },
+        { name: "Auto-save background mode", included: true },
+        { name: "Clean GUI viewer", included: true },
+        { name: "Terminal commands", included: true },
+        { name: "Auto-start on boot", included: true },
       ],
-      buttonText: "Get Started Free",
-      buttonVariant: "outline" as const,
+      buttonText: "Download Now",
+      buttonVariant: "default" as const,
+      popular: true,
     },
     {
-      name: "Pro",
-      price: "$9",
-      description: "For professionals and teams",
+      name: "Premium Support",
+      price: "Custom",
+      description: "Enterprise setup & customization",
       features: [
         { name: "Unlimited clipboard items", included: true },
         { name: "Military-grade encryption", included: true },
@@ -196,20 +177,20 @@ export default function Home() {
             {/* Hero Badge */}
             <Badge variant="secondary" className="mb-8 glass-effect border-white/10 px-4 py-2">
               <div className="w-2 h-2 bg-accent-gold rounded-full animate-pulse mr-2"></div>
-              New: AI-powered clipboard organization
+              100% Free & Open Source • Created by Vivek Rawat (RVT)
             </Badge>
 
             {/* Main Heading */}
             <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-              Your Clipboard,
+              Local Clipboard
               <br />
-              <span className="gradient-text">Supercharged</span>
+              <span className="gradient-text">Saver + Viewer</span>
             </h1>
 
             {/* Subheading */}
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              The most advanced clipboard manager with military-grade encryption,
-              intelligent organization, and seamless cross-platform sync.
+              Auto-saves everything you copy in background. Password-encrypted, 100% offline, 
+              with silent terminal restore and clean GUI viewer.
             </p>
 
             {/* CTA Buttons */}
@@ -230,15 +211,15 @@ export default function Home() {
             <div className="flex flex-wrap items-center justify-center space-x-8 text-muted-foreground text-sm">
               <div className="flex items-center space-x-2">
                 <Shield className="w-4 h-4 text-accent-gold" />
-                <span>AES-256 Encrypted</span>
+                <span>Password Protected</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Users className="w-4 h-4 text-accent-blue" />
-                <span>50K+ Users</span>
+                <FolderSync className="w-4 h-4 text-accent-blue" />
+                <span>100% Offline</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Star className="w-4 h-4 text-accent-gold" />
-                <span>4.9/5 Rating</span>
+                <span>Free Forever</span>
               </div>
             </div>
           </div>

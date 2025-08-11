@@ -30,8 +30,8 @@ export function Navbar() {
 
   const NavLink = ({ href, children, mobile = false }: { href: string; children: React.ReactNode; mobile?: boolean }) => (
     <Link href={href}>
-      <a
-        className={`${
+      <span
+        className={`cursor-pointer ${
           mobile
             ? "block px-3 py-2 text-base font-medium"
             : "text-sm font-medium transition-colors"
@@ -43,7 +43,7 @@ export function Navbar() {
         onClick={() => mobile && setIsMobileMenuOpen(false)}
       >
         {children}
-      </a>
+      </span>
     </Link>
   );
 
@@ -59,12 +59,12 @@ export function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/">
-            <a className="flex items-center space-x-3 group">
+            <div className="flex items-center space-x-3 group cursor-pointer">
               <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent-blue rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Clipboard className="w-4 h-4 text-white" />
               </div>
               <span className="text-xl font-bold gradient-text">ClipSync</span>
-            </a>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
