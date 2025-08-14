@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PlatformCard } from "@/components/PlatformCard";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import {
   Download,
   MonitorSpeaker,
@@ -29,6 +30,7 @@ interface PlatformInfo {
 export default function DownloadPage() {
   const [detectedPlatform, setDetectedPlatform] = useState<string>("");
   const { toast } = useToast();
+  useScrollAnimation();
 
   useEffect(() => {
     // Detect user's platform
@@ -130,7 +132,7 @@ export default function DownloadPage() {
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-background via-card/30 to-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center scroll-fade-in">
           <Badge variant="secondary" className="mb-8">
             <Download className="w-4 h-4 mr-2" />
             Download ClipSync
@@ -157,10 +159,14 @@ export default function DownloadPage() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {platforms.map((platform) => (
-              <PlatformCard
+            {platforms.map((platform, index) => (
+              <div 
                 key={platform.name}
-                icon={platform.icon}
+                className="scroll-scale"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <PlatformCard
+                  icon={platform.icon}
                 name={platform.name}
                 description={platform.description}
                 version={platform.version}
@@ -170,6 +176,7 @@ export default function DownloadPage() {
                 gradient={platform.gradient}
                 onDownload={() => handleDownload(platform)}
               />
+              </div>
             ))}
           </div>
 

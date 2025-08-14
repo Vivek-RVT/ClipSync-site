@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { FeatureCard } from "@/components/FeatureCard";
 import { PricingCard } from "@/components/PricingCard";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import {
   Shield,
   FolderSync,
@@ -26,6 +27,7 @@ import {
 
 export default function Home() {
   const [currentTime, setCurrentTime] = useState(new Date());
+  useScrollAnimation();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -225,10 +227,10 @@ export default function Home() {
           </div>
 
           {/* Hero Visual */}
-          <div className="mt-16 animate-fade-in">
+          <div className="mt-16 scroll-fade-in">
             <div className="relative max-w-4xl mx-auto">
               {/* Main App Window */}
-              <Card className="glass-effect rounded-3xl p-6 shadow-2xl border-white/10">
+              <Card className="glass-effect rounded-3xl p-6 shadow-2xl border-white/10 hover:scale-105 transition-transform duration-500">
                 {/* App Header */}
                 <div className="flex items-center space-x-3 mb-6">
                   <div className="flex space-x-2">
@@ -251,7 +253,7 @@ export default function Home() {
 
                     {/* Clipboard Items */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer">
+                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer hover:scale-105 animate-slide-in-left">
                         <div className="flex items-center justify-between mb-2">
                           <Badge variant="secondary" className="text-accent-blue">
                             <Code className="w-3 h-3 mr-1" />
@@ -259,23 +261,23 @@ export default function Home() {
                           </Badge>
                           <span className="text-muted-foreground text-xs">2 min ago</span>
                         </div>
-                        <p className="text-foreground text-sm">const greeting = "Hello, World!";</p>
+                        <p className="text-foreground text-sm">python3 ~/.clip_sync/clipboard_logger.py</p>
                       </Card>
 
-                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer">
+                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer hover:scale-105 animate-slide-in-right" style={{ animationDelay: '0.1s' }}>
                         <div className="flex items-center justify-between mb-2">
                           <Badge variant="secondary" className="text-accent-gold">
-                            <Image className="w-3 h-3 mr-1" />
-                            Image
+                            <Lock className="w-3 h-3 mr-1" />
+                            Encrypted
                           </Badge>
                           <span className="text-muted-foreground text-xs">5 min ago</span>
                         </div>
                         <div className="bg-muted rounded-lg h-12 flex items-center justify-center">
-                          <Image className="w-5 h-5 text-muted-foreground" />
+                          <span className="text-muted-foreground text-sm">🔒 Protected Data</span>
                         </div>
                       </Card>
 
-                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer">
+                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer hover:scale-105 animate-slide-in-left" style={{ animationDelay: '0.2s' }}>
                         <div className="flex items-center justify-between mb-2">
                           <Badge variant="secondary" className="text-accent-purple">
                             <Link2 className="w-3 h-3 mr-1" />
@@ -283,18 +285,18 @@ export default function Home() {
                           </Badge>
                           <span className="text-muted-foreground text-xs">10 min ago</span>
                         </div>
-                        <p className="text-foreground text-sm">https://github.com/premium-repo</p>
+                        <p className="text-foreground text-sm">https://github.com/vivekrawat/clipsync</p>
                       </Card>
 
-                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer">
+                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer hover:scale-105 animate-slide-in-right" style={{ animationDelay: '0.3s' }}>
                         <div className="flex items-center justify-between mb-2">
                           <Badge variant="secondary" className="text-green-400">
                             <FileText className="w-3 h-3 mr-1" />
-                            File
+                            Terminal
                           </Badge>
                           <span className="text-muted-foreground text-xs">15 min ago</span>
                         </div>
-                        <p className="text-foreground text-sm">presentation.pdf</p>
+                        <p className="text-foreground text-sm">alias clip2="python3 ~/.clip_sync/clipboard_logger.py --paste 2"</p>
                       </Card>
                     </div>
                   </div>
@@ -317,7 +319,7 @@ export default function Home() {
       <section className="py-24 bg-card/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 scroll-fade-in">
             <h2 className="text-4xl md:text-5xl font-black mb-6">
               Everything You Need in a
               <br />
@@ -331,16 +333,21 @@ export default function Home() {
 
           {/* Feature Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature) => (
-              <FeatureCard
+            {features.map((feature, index) => (
+              <div 
                 key={feature.title}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                gradient={feature.gradient}
+                className="scroll-fade-in"
+                style={{ animationDelay: `${index * 0.15}s` }}
               >
-                {feature.extra}
-              </FeatureCard>
+                <FeatureCard
+                  icon={feature.icon}
+                  title={feature.title}
+                  description={feature.description}
+                  gradient={feature.gradient}
+                >
+                  {feature.extra}
+                </FeatureCard>
+              </div>
             ))}
           </div>
 
@@ -359,7 +366,7 @@ export default function Home() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 scroll-fade-in">
             <h2 className="text-4xl md:text-5xl font-black mb-6">
               Choose Your
               <span className="gradient-text"> Perfect Plan</span>
@@ -371,24 +378,29 @@ export default function Home() {
 
           {/* Pricing Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {pricingPlans.map((plan) => (
-              <PricingCard
+            {pricingPlans.map((plan, index) => (
+              <div 
                 key={plan.name}
-                name={plan.name}
-                price={plan.price}
-                description={plan.description}
-                features={plan.features}
-                buttonText={plan.buttonText}
-                buttonVariant={plan.buttonVariant}
-                popular={plan.popular}
-                onButtonClick={() => {
-                  if (plan.name === "Enterprise") {
-                    window.location.href = "/contact";
-                  } else {
-                    window.location.href = "/pricing";
-                  }
-                }}
-              />
+                className="scroll-scale"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <PricingCard
+                  name={plan.name}
+                  price={plan.price}
+                  description={plan.description}
+                  features={plan.features}
+                  buttonText={plan.buttonText}
+                  buttonVariant={plan.buttonVariant}
+                  popular={plan.popular}
+                  onButtonClick={() => {
+                    if (plan.name === "Enterprise") {
+                      window.location.href = "/contact";
+                    } else {
+                      window.location.href = "/pricing";
+                    }
+                  }}
+                />
+              </div>
             ))}
           </div>
 

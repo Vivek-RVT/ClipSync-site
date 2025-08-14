@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FeatureCard } from "@/components/FeatureCard";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import {
   Shield,
   FolderSync,
@@ -21,6 +22,7 @@ import {
 } from "lucide-react";
 
 export default function Features() {
+  useScrollAnimation();
   const mainFeatures = [
     {
       icon: Shield,
@@ -236,7 +238,7 @@ function encryptClipboardData(data, password) {
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-background via-card/30 to-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center scroll-fade-in">
           <Badge variant="secondary" className="mb-8">
             Advanced Clipboard Management
           </Badge>
@@ -255,7 +257,7 @@ function encryptClipboardData(data, password) {
       {/* Main Features */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 scroll-fade-in">
             <h2 className="text-3xl md:text-4xl font-black mb-4">Core Features</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Essential capabilities that make ClipSync the ultimate clipboard manager
@@ -263,16 +265,21 @@ function encryptClipboardData(data, password) {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
-            {mainFeatures.map((feature) => (
-              <FeatureCard
+            {mainFeatures.map((feature, index) => (
+              <div 
                 key={feature.title}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                gradient={feature.gradient}
+                className="scroll-fade-in"
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
-                {feature.extra}
-              </FeatureCard>
+                <FeatureCard
+                  icon={feature.icon}
+                  title={feature.title}
+                  description={feature.description}
+                  gradient={feature.gradient}
+                >
+                  {feature.extra}
+                </FeatureCard>
+              </div>
             ))}
           </div>
         </div>
@@ -281,7 +288,7 @@ function encryptClipboardData(data, password) {
       {/* Additional Features Grid */}
       <section className="py-24 bg-card/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 scroll-fade-in">
             <h2 className="text-3xl md:text-4xl font-black mb-4">Additional Features</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Even more powerful tools to enhance your productivity
@@ -289,16 +296,22 @@ function encryptClipboardData(data, password) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {additionalFeatures.map((feature) => (
-              <Card key={feature.title} className="glass-effect rounded-2xl p-6 text-center border-white/10 hover:border-primary/50 transition-all">
-                <CardContent className="p-0">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent-blue rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground">{feature.description}</p>
-                </CardContent>
-              </Card>
+            {additionalFeatures.map((feature, index) => (
+              <div 
+                key={feature.title}
+                className="scroll-scale"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                  <Card className="glass-effect rounded-2xl p-6 text-center border-white/10 hover:border-primary/50 transition-all hover:scale-105">
+                    <CardContent className="p-0">
+                      <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent-blue rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <feature.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="font-semibold mb-2">{feature.title}</h3>
+                      <p className="text-sm text-muted-foreground">{feature.description}</p>
+                    </CardContent>
+                  </Card>
+                </div>
             ))}
           </div>
         </div>
@@ -307,7 +320,7 @@ function encryptClipboardData(data, password) {
       {/* Supported Content Types */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 scroll-fade-in">
             <h2 className="text-3xl md:text-4xl font-black mb-4">Supported Content Types</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               ClipSync handles all types of content with intelligence and precision
@@ -315,20 +328,26 @@ function encryptClipboardData(data, password) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {supportedTypes.map((type) => (
-              <Card key={type.name} className="glass-effect rounded-2xl p-6 border-white/10 hover:border-primary/50 transition-all">
-                <CardContent className="p-0">
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-accent-gold to-accent-purple rounded-xl flex items-center justify-center">
-                      <type.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold">{type.name}</h3>
-                      <p className="text-sm text-muted-foreground">{type.description}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            {supportedTypes.map((type, index) => (
+              <div 
+                key={type.name}
+                className="scroll-slide-left"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                  <Card className="glass-effect rounded-2xl p-6 border-white/10 hover:border-primary/50 transition-all hover:scale-105">
+                    <CardContent className="p-0">
+                      <div className="flex items-center space-x-4 mb-4">
+                        <div className="w-12 h-12 bg-gradient-to-br from-accent-gold to-accent-purple rounded-xl flex items-center justify-center">
+                          <type.icon className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold">{type.name}</h3>
+                          <p className="text-sm text-muted-foreground">{type.description}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
             ))}
           </div>
         </div>
@@ -337,14 +356,14 @@ function encryptClipboardData(data, password) {
       {/* Performance Stats */}
       <section className="py-24 bg-card/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 scroll-fade-in">
             <h2 className="text-3xl md:text-4xl font-black mb-4">Performance & Reliability</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Built for speed, security, and reliability
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 scroll-fade-in">
             <div className="text-center">
               <div className="text-4xl font-black text-primary mb-2">&lt;1ms</div>
               <div className="text-muted-foreground">Search Response</div>
