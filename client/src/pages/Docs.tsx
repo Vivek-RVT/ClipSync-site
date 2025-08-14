@@ -25,32 +25,32 @@ export default function Docs() {
 
   const quickStartGuides = [
     {
-      title: "Installation",
-      description: "Download and install ClipSync on Windows or Linux",
+      title: "Getting Started",
+      description: "Install ClipSync and set up your first clipboard",
       icon: Download,
-      duration: "3 min",
-      steps: 3,
+      duration: "5 min",
+      steps: 4,
     },
     {
-      title: "Password Setup",
-      description: "Set up password protection for your clips",
+      title: "Setting Up Sync",
+      description: "Connect multiple devices for seamless synchronization",
+      icon: Smartphone,
+      duration: "10 min",
+      steps: 6,
+    },
+    {
+      title: "Security Configuration",
+      description: "Configure encryption and password protection",
       icon: Shield,
-      duration: "2 min",
-      steps: 2,
+      duration: "8 min",
+      steps: 5,
     },
     {
-      title: "Using Search",
-      description: "Find clips instantly with search and filter",
-      icon: Search,
-      duration: "2 min",
-      steps: 2,
-    },
-    {
-      title: "Managing Clips",
-      description: "Save, copy, and delete clips with one-click",
+      title: "Advanced Features",
+      description: "Customize shortcuts and automation rules",
       icon: Settings,
-      duration: "3 min",
-      steps: 3,
+      duration: "15 min",
+      steps: 8,
     },
   ];
 
@@ -60,15 +60,15 @@ export default function Docs() {
       questions: [
         {
           question: "What is ClipSync?",
-          answer: "ClipSync is a 100% free and open source clipboard manager created by Vivek Rawat (RVT). It stores unlimited text clips locally with password protection, search/filter capabilities, and a dark mode interface."
+          answer: "ClipSync is a premium clipboard manager that securely stores, organizes, and synchronizes your clipboard history across all your devices. It features military-grade encryption, intelligent search, and advanced productivity tools."
         },
         {
           question: "Which platforms does ClipSync support?",
-          answer: "ClipSync is available for Windows and Linux only. The app works completely offline and stores all data locally on your device."
+          answer: "ClipSync is available for Windows, Linux, Android, with macOS and iOS coming soon. All platforms support cross-device synchronization when you have a Pro account."
         },
         {
           question: "Is ClipSync free to use?",
-          answer: "Yes! ClipSync is 100% free forever with no subscriptions, no paid plans, and no limitations. All features are included for free."
+          answer: "Yes! ClipSync offers a free plan that includes up to 50 clipboard items, basic encryption, and local storage. For unlimited items and advanced features, upgrade to ClipSync Pro."
         },
       ]
     },
@@ -77,15 +77,15 @@ export default function Docs() {
       questions: [
         {
           question: "How secure is my clipboard data?",
-          answer: "Your clipboard data is protected with password encryption and stored locally on your device. No data is sent to any servers - everything stays on your computer."
+          answer: "Your clipboard data is protected with AES-256 encryption, the same standard used by banks and government agencies. All encryption happens locally on your device before any data is stored or transmitted."
         },
         {
           question: "Can ClipSync see my clipboard data?",
-          answer: "No. ClipSync works completely offline and stores all data locally on your device. There are no servers, no cloud sync, and no data collection."
+          answer: "No. ClipSync uses zero-knowledge architecture, meaning your data is encrypted with your password before it ever leaves your device. Even ClipSync employees cannot access your clipboard data."
         },
         {
           question: "What happens if I forget my password?",
-          answer: "Since data is stored locally with password protection, forgetting your password means you cannot access your encrypted clips. You'll need to reset and start fresh."
+          answer: "Due to our zero-knowledge architecture, if you forget your password, we cannot recover your encrypted data. However, you can reset your account and start fresh. We recommend using a password manager."
         },
       ]
     },
@@ -94,15 +94,15 @@ export default function Docs() {
       questions: [
         {
           question: "How do I search my clipboard history?",
-          answer: "Open ClipSync and use the search bar at the top. Type any text to instantly find clips. You can also use the filter options to show all clips or filter by category."
+          answer: "Use Ctrl+Shift+V (Windows/Linux) or Cmd+Shift+V (macOS) to open the search interface. You can search by content, date, file type, or source application. Our AI-powered search understands natural language queries."
         },
         {
           question: "Can I organize my clipboard items?",
-          answer: "ClipSync focuses on simplicity. You can save unlimited text clips, search through them instantly, and delete any clips you no longer need with one-click operations."
+          answer: "Yes! ClipSync automatically categorizes your clipboard items and allows you to create custom tags and collections. You can also create password-protected vaults for sensitive information."
         },
         {
-          question: "How do I copy clips?",
-          answer: "Each clip in ClipSync has a one-click copy button. Simply click on any clip to copy it to your clipboard, then paste it anywhere you need it."
+          question: "How do I sync across devices?",
+          answer: "Sign up for a ClipSync Pro account and enable cloud sync in the settings. Your encrypted clipboard data will automatically sync across all your connected devices in real-time."
         },
       ]
     },

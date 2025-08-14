@@ -1,58 +1,8 @@
-# ClipSync - Free Clipboard Manager
+# ClipSync - Premium Clipboard Manager
 
 ## Overview
 
-ClipSync is a 100% free and open source clipboard manager created by Vivek Rawat (RVT) that provides secure, local clipboard management with password encryption. Available for Windows and Linux platforms only. The project website is built as a modern full-stack web application using React for the frontend, Express.js for the backend, showcasing the desktop application and providing download links. The application emphasizes offline-first approach, local storage, and user privacy.
-
-## Recent Changes (August 14, 2025)
-
-### Major Update: 3D Elements & Creative Animations (Latest)
-- **Enhanced CSS Framework**: Added comprehensive 3D animation system with 15+ new animation classes
-- **3D Visual Effects**: Implemented morphing blobs, floating elements, rotating borders, and perspective transformations
-- **Updated Download Links**: Fixed Google Drive URLs for Windows and Linux downloads with proper ?usp= parameters
-- **Interactive Components**: All cards, buttons, and UI elements now have 3D hover effects and smooth transitions
-- **Background Animations**: Added animated geometric shapes and particle-like elements throughout pages
-- **Performance Optimized**: Used CSS transforms and hardware acceleration for smooth 60fps animations
-- **Enhanced UX**: Staggered animation delays, glass morphism effects, and dynamic gradient shifts
-- **3D Navigation**: Logo, buttons, and navigation elements have enhanced 3D perspective effects
-
-### Major Update: Removed Pricing, Made App Free
-- **Removed all pricing tiers**: App is now 100% free with no subscriptions or paid plans
-- **Updated download links**: Added real Google Drive download links for Windows (.exe) and Linux (.deb)
-- **Added installation instructions**: Detailed Linux installation via dpkg and Windows setup guide
-- **Updated navigation**: Removed "Pricing" from navbar and footer, replaced with "Download"
-- **Added uninstall instructions**: Linux uninstall command included
-- **Creator attribution**: Added Vivek Rawat (RVT) as creator throughout the site
-- **Platform limitation**: Clarified that app is only available for Windows and Linux (no macOS)
-
-### Content Update: Real App Features
-- **Updated all features**: Replaced generic clipboard features with actual app functionality
-- **Real feature set**: Unlimited clip management, one-click copying, password protection, instant search/filter, dark mode UI, auto-save, settings panel
-- **Accurate descriptions**: Home page and Features page now reflect real app capabilities
-- **Text-only focus**: Clarified app is specialized for text clips only (no images/files)
-- **Platform support**: Updated to show Windows and Linux only
-- **UI details**: Added details about dark mode, white background for selected clips, rounded corners, clean interface
-
-### Contact & Documentation Update
-- **Support email**: Updated to vivekrvt84@gmail.com throughout the site
-- **Gmail integration**: Contact form now redirects to Gmail with pre-filled message to Vivek
-- **Updated docs**: FAQ and guides now reflect real app functionality (local storage, password protection, offline operation)
-- **HTML pages created**: Separate HTML files for features.html, security.html, download.html, docs.html, contact.html for direct access
-- **Removed enterprise references**: Updated contact methods to reflect free support and open source nature
-
-### SEO Optimization Implementation (August 14, 2025)
-- **Comprehensive meta tags**: Updated title, description, keywords, author, and robots tags for all pages
-- **Structured data**: Added JSON-LD schema for software application with download links and features
-- **Open Graph & Twitter Cards**: Complete social media optimization for better sharing
-- **Technical SEO**: Updated sitemap.xml and robots.txt with current URLs and structure
-- **Performance optimization**: Added preconnect for fonts, theme colors, and mobile app settings
-- **HTML page SEO**: Enhanced all static HTML pages with proper meta tags and canonical URLs
-- **Keyword targeting**: Focused on "free clipboard manager", "vivek rawat", platform-specific terms
-- **Content optimization**: Proper heading hierarchy and semantic HTML structure
-
-### Download Links Updated
-- Linux (.deb): https://drive.google.com/file/d/1RTgAfIL8G-HhNpVVwLo_-u9pJy9C9AXv/view?usp=drive_link
-- Windows: https://drive.google.com/file/d/1XMqhRZPbnYYs898RalbmoWVJNS7bc7sw/view?usp=sharing
+ClipSync is a premium clipboard manager application that provides secure, cross-platform clipboard management with military-grade encryption. The project is built as a modern full-stack web application using React for the frontend, Express.js for the backend, and PostgreSQL for data persistence. The application emphasizes security, user experience, and cross-platform compatibility.
 
 ## User Preferences
 

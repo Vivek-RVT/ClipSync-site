@@ -6,6 +6,7 @@ export function Footer() {
     Product: [
       { name: "Features", href: "/features" },
       { name: "Security", href: "/security" },
+      { name: "Pricing", href: "/pricing" },
       { name: "Download", href: "/download" },
       { name: "Changelog", href: "/docs" },
     ],
@@ -32,15 +33,15 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-1">
             <Link href="/">
-              <div className="flex items-center space-x-3 mb-6 group cursor-pointer">
+              <a className="flex items-center space-x-3 mb-6 group">
                 <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent-blue rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Clipboard className="w-4 h-4 text-white" />
                 </div>
                 <span className="text-xl font-bold gradient-text">ClipSync</span>
-              </div>
+              </a>
             </Link>
             <p className="text-muted-foreground mb-6 text-sm">
-              100% free and open source clipboard manager with password encryption. Created by Vivek Rawat (RVT).
+              The most secure and intelligent clipboard manager for professionals.
             </p>
             <div className="flex space-x-4">
               <a
@@ -78,9 +79,9 @@ export function Footer() {
                 {links.map((link) => (
                   <li key={link.name}>
                     <Link href={link.href}>
-                      <span className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                      <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                         {link.name}
-                      </span>
+                      </a>
                     </Link>
                   </li>
                 ))}
@@ -92,7 +93,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
           <p className="text-sm text-muted-foreground">
-            © 2024 ClipSync by Vivek Rawat (RVT). Free & Open Source.
+            © 2024 ClipSync. All rights reserved.
           </p>
           <div className="flex items-center space-x-6 mt-4 md:mt-0">
             <div className="flex items-center space-x-2 text-green-400 text-sm">
