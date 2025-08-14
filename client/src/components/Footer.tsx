@@ -33,40 +33,24 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-1">
             <Link href="/">
-              <a className="flex items-center space-x-3 mb-6 group">
+              <div className="flex items-center space-x-3 mb-6 group cursor-pointer">
                 <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent-blue rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Clipboard className="w-4 h-4 text-white" />
                 </div>
                 <span className="text-xl font-bold gradient-text">ClipSync</span>
-              </a>
+              </div>
             </Link>
             <p className="text-muted-foreground mb-6 text-sm">
-              The most secure and intelligent clipboard manager for professionals.
+              Local clipboard saver + viewer. 100% offline, password-protected, and free forever.
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://twitter.com/clipsync"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="https://github.com/clipsync/clipsync"
+                href="https://github.com/vivekrawat/clipsync"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="https://linkedin.com/company/clipsync"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -79,9 +63,9 @@ export function Footer() {
                 {links.map((link) => (
                   <li key={link.name}>
                     <Link href={link.href}>
-                      <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      <span className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
                         {link.name}
-                      </a>
+                      </span>
                     </Link>
                   </li>
                 ))}
@@ -93,7 +77,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
           <p className="text-sm text-muted-foreground">
-            © 2024 ClipSync. All rights reserved.
+            © 2024 ClipSync by Vivek Rawat (RVT). Free & Open Source.
           </p>
           <div className="flex items-center space-x-6 mt-4 md:mt-0">
             <div className="flex items-center space-x-2 text-green-400 text-sm">

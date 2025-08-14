@@ -59,17 +59,17 @@ export default function DownloadPage() {
       size: "~5MB",
       available: true,
       gradient: "from-accent-gold/20 to-accent-gold/20",
-      downloadUrl: "https://github.com/vivekrawat/clipsync",
+      downloadUrl: "https://drive.google.com/file/d/1RTgAfIL8G-HhNpVVwLo_-u9pJy9C9AXv/view?usp=drive_link",
     },
     {
       name: "macOS",
       icon: Apple,
-      description: "macOS 10.14+",
+      description: "macOS 10.14+ (same as Linux)",
       version: "Python 3.6+",
       size: "~5MB",
       available: true,
       gradient: "from-muted/20 to-muted/20",
-      downloadUrl: "https://github.com/vivekrawat/clipsync",
+      downloadUrl: "https://drive.google.com/file/d/1RTgAfIL8G-HhNpVVwLo_-u9pJy9C9AXv/view?usp=drive_link",
     },
     {
       name: "Windows",
@@ -79,7 +79,7 @@ export default function DownloadPage() {
       size: "~5MB",
       available: true,
       gradient: "from-accent-blue/20 to-accent-blue/20",
-      downloadUrl: "https://github.com/vivekrawat/clipsync",
+      downloadUrl: "https://drive.google.com/file/d/1XMqhRZPbnYYs898RalbmoWVJNS7bc7sw/view?usp=sharing",
     },
   ];
 
