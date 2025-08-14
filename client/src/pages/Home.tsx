@@ -109,56 +109,16 @@ export default function Home() {
     },
   ];
 
-  const pricingPlans = [
-    {
-      name: "Free & Open Source",
-      price: "$0",
-      description: "100% free forever - created by Vivek Rawat (RVT)",
-      features: [
-        { name: "Unlimited clipboard items", included: true },
-        { name: "Password encryption", included: true },
-        { name: "Local offline storage", included: true },
-        { name: "Cross-platform support", included: true },
-        { name: "Auto-save background mode", included: true },
-        { name: "Clean GUI viewer", included: true },
-        { name: "Terminal commands", included: true },
-        { name: "Auto-start on boot", included: true },
-      ],
-      buttonText: "Download Now",
-      buttonVariant: "default" as const,
-      popular: true,
-    },
-    {
-      name: "Premium Support",
-      price: "Custom",
-      description: "Enterprise setup & customization",
-      features: [
-        { name: "Unlimited clipboard items", included: true },
-        { name: "Military-grade encryption", included: true },
-        { name: "Cross-device sync", included: true },
-        { name: "Advanced search & AI", included: true },
-        { name: "Password-protected vaults", included: true },
-        { name: "Priority support", included: true },
-      ],
-      buttonText: "Start Pro Trial",
-      buttonVariant: "default" as const,
-      popular: true,
-    },
-    {
-      name: "Enterprise",
-      price: "Custom",
-      description: "For large organizations",
-      features: [
-        { name: "Everything in Pro", included: true },
-        { name: "SSO integration", included: true },
-        { name: "Advanced admin controls", included: true },
-        { name: "Audit logs", included: true },
-        { name: "Custom integrations", included: true },
-        { name: "24/7 dedicated support", included: true },
-      ],
-      buttonText: "Contact Sales",
-      buttonVariant: "outline" as const,
-    },
+  // Single free app - no pricing plans needed
+  const appFeatures = [
+    { name: "Unlimited clipboard items", included: true },
+    { name: "Password encryption", included: true },
+    { name: "Local offline storage", included: true },
+    { name: "Windows & Linux support", included: true },
+    { name: "Auto-save background mode", included: true },
+    { name: "Clean GUI viewer", included: true },
+    { name: "Terminal commands", included: true },
+    { name: "Auto-start on boot", included: true },
   ];
 
   return (
@@ -355,48 +315,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Free App Section */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black mb-6">
-              Choose Your
-              <span className="gradient-text"> Perfect Plan</span>
+              100% Free & 
+              <span className="gradient-text"> Open Source</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Start free and upgrade when you need advanced features for professional workflows.
+              Created by Vivek Rawat (RVT). Available for Windows and Linux. No hidden costs, no subscriptions.
             </p>
           </div>
 
-          {/* Pricing Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {pricingPlans.map((plan) => (
-              <PricingCard
-                key={plan.name}
-                name={plan.name}
-                price={plan.price}
-                description={plan.description}
-                features={plan.features}
-                buttonText={plan.buttonText}
-                buttonVariant={plan.buttonVariant}
-                popular={plan.popular}
-                onButtonClick={() => {
-                  if (plan.name === "Enterprise") {
-                    window.location.href = "/contact";
-                  } else {
-                    window.location.href = "/pricing";
-                  }
-                }}
-              />
-            ))}
+          {/* Single Feature Card */}
+          <div className="max-w-md mx-auto">
+            <PricingCard
+              name="ClipSync"
+              price="Free Forever"
+              description="Local clipboard manager with password encryption"
+              features={appFeatures}
+              buttonText="Download Now"
+              buttonVariant="default"
+              popular={true}
+              onButtonClick={() => {
+                window.location.href = "/download";
+              }}
+            />
           </div>
 
-          {/* Money Back Guarantee */}
+          {/* Free Forever Badge */}
           <div className="text-center mt-12">
             <div className="inline-flex items-center space-x-2 text-green-400">
               <Shield className="w-5 h-5" />
-              <span>30-day money-back guarantee</span>
+              <span>100% Free Forever • No Registration Required</span>
             </div>
           </div>
         </div>
@@ -423,15 +376,15 @@ export default function Home() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <Link href="/pricing">
+            <Link href="/download">
               <Button size="lg" className="bg-white text-primary hover:bg-gray-100 px-8 py-4 text-lg font-bold transition-all transform hover:scale-105">
-                Start Free Trial
-                <ArrowRight className="w-5 h-5 ml-2" />
+                Download Free
+                <Download className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link href="/features">
               <Button size="lg" variant="outline" className="border-2 border-white/30 hover:border-white px-8 py-4 text-lg font-semibold text-white">
-                Schedule Demo
+                View Features
               </Button>
             </Link>
           </div>

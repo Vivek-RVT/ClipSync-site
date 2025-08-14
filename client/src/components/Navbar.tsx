@@ -23,7 +23,6 @@ export function Navbar() {
   const navigation = [
     { name: "Features", href: "/features" },
     { name: "Security", href: "/security" },
-    { name: "Pricing", href: "/pricing" },
     { name: "Download", href: "/download" },
     { name: "Docs", href: "/docs" },
   ];
@@ -92,12 +91,12 @@ export function Navbar() {
             </Button>
             <Link href="/contact">
               <Button variant="ghost" size="sm">
-                Sign In
+                Contact
               </Button>
             </Link>
-            <Link href="/pricing">
+            <Link href="/download">
               <Button size="sm" className="btn-primary">
-                Get Started
+                Download Free
               </Button>
             </Link>
           </div>
@@ -141,12 +140,12 @@ export function Navbar() {
                 <div className="mt-8 space-y-4">
                   <Link href="/contact">
                     <Button variant="ghost" className="w-full justify-start" onClick={() => setIsMobileMenuOpen(false)}>
-                      Sign In
+                      Contact
                     </Button>
                   </Link>
-                  <Link href="/pricing">
+                  <Link href="/download">
                     <Button className="w-full btn-primary" onClick={() => setIsMobileMenuOpen(false)}>
-                      Get Started
+                      Download Free
                     </Button>
                   </Link>
                 </div>

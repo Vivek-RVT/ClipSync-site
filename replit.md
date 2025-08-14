@@ -1,8 +1,23 @@
-# ClipSync - Premium Clipboard Manager
+# ClipSync - Free Clipboard Manager
 
 ## Overview
 
-ClipSync is a premium clipboard manager application that provides secure, cross-platform clipboard management with military-grade encryption. The project is built as a modern full-stack web application using React for the frontend, Express.js for the backend, and PostgreSQL for data persistence. The application emphasizes security, user experience, and cross-platform compatibility.
+ClipSync is a 100% free and open source clipboard manager created by Vivek Rawat (RVT) that provides secure, local clipboard management with password encryption. Available for Windows and Linux platforms only. The project website is built as a modern full-stack web application using React for the frontend, Express.js for the backend, showcasing the desktop application and providing download links. The application emphasizes offline-first approach, local storage, and user privacy.
+
+## Recent Changes (August 14, 2025)
+
+### Major Update: Removed Pricing, Made App Free
+- **Removed all pricing tiers**: App is now 100% free with no subscriptions or paid plans
+- **Updated download links**: Added real Google Drive download links for Windows (.exe) and Linux (.deb)
+- **Added installation instructions**: Detailed Linux installation via dpkg and Windows setup guide
+- **Updated navigation**: Removed "Pricing" from navbar and footer, replaced with "Download"
+- **Added uninstall instructions**: Linux uninstall command included
+- **Creator attribution**: Added Vivek Rawat (RVT) as creator throughout the site
+- **Platform limitation**: Clarified that app is only available for Windows and Linux (no macOS)
+
+### Download Links Added
+- Linux (.deb): https://drive.google.com/file/d/1RTgAfIL8G-HhNpVVwLo_-u9pJy9C9AXv/view
+- Windows: https://drive.google.com/file/d/1XMqhRZPbnYYs898RalbmoWVJNS7bc7sw/view?usp=sharing
 
 ## User Preferences
 

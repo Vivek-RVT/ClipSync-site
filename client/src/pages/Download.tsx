@@ -12,6 +12,8 @@ import {
   CheckCircle,
   AlertCircle,
   ExternalLink,
+  Lock,
+  FileText,
 } from "lucide-react";
 
 interface PlatformInfo {
@@ -52,34 +54,24 @@ export default function DownloadPage() {
 
   const platforms: PlatformInfo[] = [
     {
-      name: "Linux",
+      name: "Linux (.deb)",
       icon: MonitorSpeaker,
-      description: "Ubuntu, Fedora, Arch, etc.",
-      version: "Python 3.6+",
-      size: "~5MB",
+      description: "Ubuntu, Debian, and derivatives",
+      version: "v1.0",
+      size: "~2MB",
       available: true,
       gradient: "from-accent-gold/20 to-accent-gold/20",
-      downloadUrl: "https://github.com/vivekrawat/clipsync",
-    },
-    {
-      name: "macOS",
-      icon: Apple,
-      description: "macOS 10.14+",
-      version: "Python 3.6+",
-      size: "~5MB",
-      available: true,
-      gradient: "from-muted/20 to-muted/20",
-      downloadUrl: "https://github.com/vivekrawat/clipsync",
+      downloadUrl: "https://drive.google.com/file/d/1RTgAfIL8G-HhNpVVwLo_-u9pJy9C9AXv/view",
     },
     {
       name: "Windows",
       icon: MonitorSpeaker,
       description: "Windows 10/11",
-      version: "Python 3.6+",
-      size: "~5MB",
+      version: "v1.0",
+      size: "~3MB",
       available: true,
       gradient: "from-accent-blue/20 to-accent-blue/20",
-      downloadUrl: "https://github.com/vivekrawat/clipsync",
+      downloadUrl: "https://drive.google.com/file/d/1XMqhRZPbnYYs898RalbmoWVJNS7bc7sw/view?usp=sharing",
     },
   ];
 
@@ -108,21 +100,15 @@ export default function DownloadPage() {
   const systemRequirements = {
     Windows: [
       "Windows 10 or later",
-      "100MB free space",
-      ".NET Framework 4.8+",
-      "Internet connection for sync",
+      "50MB free space",
+      "No additional dependencies",
+      "100% offline - no internet required",
     ],
     Linux: [
-      "Ubuntu 18.04+ / Fedora 30+ / Arch Linux",
-      "80MB free space",
-      "GTK 3.0+",
-      "Internet connection for sync",
-    ],
-    Android: [
-      "Android 8.0 (API level 26)+",
-      "50MB free space",
-      "Accessibility permission",
-      "Internet connection for sync",
+      "Ubuntu 18.04+ / Debian 9+ / Any .deb compatible",
+      "30MB free space", 
+      "Terminal access for installation",
+      "100% offline - no internet required",
     ],
   };
 
@@ -156,7 +142,7 @@ export default function DownloadPage() {
       {/* Download Cards */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {platforms.map((platform) => (
               <PlatformCard
                 key={platform.name}
@@ -212,7 +198,7 @@ export default function DownloadPage() {
 
           <Card className="glass-effect rounded-2xl p-8 max-w-6xl mx-auto border-white/10">
             <CardContent className="p-0">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {Object.entries(systemRequirements).map(([platform, requirements]) => (
                   <div key={platform}>
                     <h3 className="font-bold text-xl mb-4 flex items-center">
@@ -246,19 +232,61 @@ export default function DownloadPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Windows/Linux Installation */}
+            {/* Linux Installation */}
             <Card className="glass-effect rounded-2xl p-8 border-white/10">
               <CardContent className="p-0">
                 <h3 className="text-xl font-bold mb-6 flex items-center">
                   <MonitorSpeaker className="w-6 h-6 mr-3" />
-                  Desktop Installation
+                  Linux Installation (.deb)
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
                     <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold">1</div>
                     <div>
                       <h4 className="font-semibold">Download</h4>
-                      <p className="text-sm text-muted-foreground">Click the download button for your platform</p>
+                      <p className="text-sm text-muted-foreground">Save the clipsync_1.0.deb file to your desired folder</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
+                    <div>
+                      <h4 className="font-semibold">Install via Terminal</h4>
+                      <p className="text-sm text-muted-foreground">Open Terminal in the folder and run:</p>
+                      <Card className="bg-card/50 rounded-xl p-3 mt-2 border border-border">
+                        <code className="text-xs text-accent-blue">
+                          sudo dpkg -i clipsync_1.0.deb<br/>
+                          sudo apt-get install -f
+                        </code>
+                      </Card>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
+                    <div>
+                      <h4 className="font-semibold">Launch ClipSync</h4>
+                      <p className="text-sm text-muted-foreground">Run from Applications Menu or terminal:</p>
+                      <Card className="bg-card/50 rounded-xl p-3 mt-2 border border-border">
+                        <code className="text-xs text-accent-blue">clipsync</code>
+                      </Card>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Windows Installation */}
+            <Card className="glass-effect rounded-2xl p-8 border-white/10">
+              <CardContent className="p-0">
+                <h3 className="text-xl font-bold mb-6 flex items-center">
+                  <MonitorSpeaker className="w-6 h-6 mr-3" />
+                  Windows Installation
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold">1</div>
+                    <div>
+                      <h4 className="font-semibold">Download</h4>
+                      <p className="text-sm text-muted-foreground">Download the Windows installer package</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
@@ -272,43 +300,119 @@ export default function DownloadPage() {
                     <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
                     <div>
                       <h4 className="font-semibold">Launch</h4>
-                      <p className="text-sm text-muted-foreground">Start ClipSync and complete the initial setup</p>
+                      <p className="text-sm text-muted-foreground">Start ClipSync from Start Menu or desktop shortcut</p>
                     </div>
                   </div>
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
 
-            {/* Mobile Installation */}
+      {/* How It Works */}
+      <section className="py-24 bg-card/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-black mb-4">How ClipSync Works</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Simple and secure clipboard management with encrypted local storage
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="glass-effect rounded-2xl p-6 border-white/10">
+              <CardContent className="p-0 text-center">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">📋</span>
+                </div>
+                <h3 className="font-bold mb-2">Automatic Clipboard Sync</h3>
+                <p className="text-sm text-muted-foreground">Keeps your clipboard history stored securely in the background</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="glass-effect rounded-2xl p-6 border-white/10">
+              <CardContent className="p-0 text-center">
+                <div className="w-12 h-12 bg-accent-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Lock className="w-6 h-6 text-accent-blue" />
+                </div>
+                <h3 className="font-bold mb-2">Password Storage</h3>
+                <p className="text-sm text-muted-foreground">Save your passwords locally with encryption</p>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-effect rounded-2xl p-6 border-white/10">
+              <CardContent className="p-0 text-center">
+                <div className="w-12 h-12 bg-accent-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">💾</span>
+                </div>
+                <h3 className="font-bold mb-2">Offline First</h3>
+                <p className="text-sm text-muted-foreground">No internet required; data stays on your device</p>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-effect rounded-2xl p-6 border-white/10">
+              <CardContent className="p-0 text-center">
+                <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-6 h-6 text-green-400" />
+                </div>
+                <h3 className="font-bold mb-2">Fresh Start</h3>
+                <p className="text-sm text-muted-foreground">New users get empty storage files ready to use</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-12">
+            <Card className="glass-effect rounded-2xl p-8 max-w-4xl mx-auto border-white/10">
+              <CardContent className="p-0">
+                <h3 className="text-xl font-bold mb-6">Storage Files Created</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <FileText className="w-5 h-5 text-accent-blue" />
+                      <span className="font-mono text-sm">password.txt</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground ml-8">For storing passwords securely</p>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <FileText className="w-5 h-5 text-accent-gold" />
+                      <span className="font-mono text-sm">clipboard_data.json.aes</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground ml-8">For encrypted clipboard history</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Uninstall Instructions */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-black mb-4">Uninstall ClipSync</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Easy removal if you need to uninstall the application
+            </p>
+          </div>
+
+          <div className="max-w-2xl mx-auto">
             <Card className="glass-effect rounded-2xl p-8 border-white/10">
               <CardContent className="p-0">
                 <h3 className="text-xl font-bold mb-6 flex items-center">
-                  <Smartphone className="w-6 h-6 mr-3" />
-                  Mobile Installation
+                  <MonitorSpeaker className="w-6 h-6 mr-3" />
+                  Linux Uninstall
                 </h3>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold">1</div>
-                    <div>
-                      <h4 className="font-semibold">App Store</h4>
-                      <p className="text-sm text-muted-foreground">Download from Google Play Store</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
-                    <div>
-                      <h4 className="font-semibold">Permissions</h4>
-                      <p className="text-sm text-muted-foreground">Grant accessibility permissions for clipboard access</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
-                    <div>
-                      <h4 className="font-semibold">Sync</h4>
-                      <p className="text-sm text-muted-foreground">Connect with your desktop app for seamless sync</p>
-                    </div>
-                  </div>
-                </div>
+                <p className="text-muted-foreground mb-4">
+                  To completely remove ClipSync from your Linux system:
+                </p>
+                <Card className="bg-card/50 rounded-xl p-4 border border-border">
+                  <code className="text-accent-blue">
+                    sudo apt remove clipsync
+                  </code>
+                </Card>
               </CardContent>
             </Card>
           </div>
