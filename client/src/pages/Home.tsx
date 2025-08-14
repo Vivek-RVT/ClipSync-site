@@ -37,73 +37,72 @@ export default function Home() {
 
   const features = [
     {
-      icon: Shield,
-      title: "Password-Protected & Private",
-      description: "Your clipboard data is encrypted with your own password and stored locally in ~/.clip_sync/. 100% offline, your data never leaves your device.",
+      icon: History,
+      title: "Unlimited Clip Management",
+      description: "Save unlimited text clips with one-click copying. All clips stored locally (no internet needed). Delete clips anytime you want.",
       gradient: "from-primary to-accent-blue",
       extra: (
         <Card className="bg-card/50 rounded-xl p-4 border border-border">
-          <code className="text-sm text-accent-blue">
-            ~/.clip_sync/ (encrypted, local storage)
-          </code>
+          <div className="flex items-center justify-between text-sm">
+            <span className="text-muted-foreground">Clips saved:</span>
+            <span className="text-accent-blue font-bold">∞ Unlimited</span>
+          </div>
         </Card>
       ),
     },
     {
-      icon: History,
-      title: "Auto-Save Everything",
-      description: "Automatically saves everything you copy in the background. Silent restore via terminal commands - access your 2nd, 3rd, or any previous clipboard item instantly.",
+      icon: Shield,
+      title: "Password Protected",
+      description: "Your clipboard data is secured with password protection. All clips are encrypted and stored safely on your device.",
       gradient: "from-accent-purple to-accent-blue",
       extra: (
         <Card className="bg-card/50 rounded-xl p-4 border border-border">
-          <code className="text-sm text-accent-blue">
-            python3 ~/.clip_sync/clipboard_logger.py --paste 2
-          </code>
+          <div className="flex items-center space-x-2 text-sm">
+            <Lock className="w-4 h-4 text-accent-blue" />
+            <span className="text-accent-blue">Encrypted & Secure</span>
+          </div>
         </Card>
       ),
     },
     {
       icon: Search,
-      title: "Clean GUI Viewer",
-      description: "Beautiful, intuitive interface for viewing, searching, and filtering your clipboard history. Find anything instantly with powerful search.",
+      title: "Instant Search & Filter",
+      description: "Find clips instantly by typing in the search bar. Filter by category or show all clips. No clip limit - all clips visible unless filtered.",
       gradient: "from-accent-gold to-primary",
       extra: (
         <Card className="bg-card/50 rounded-xl p-3 border border-border">
-          <code className="text-sm text-accent-blue">
-            python3 ~/.clip_sync/viewer_gui.py
-          </code>
+          <div className="flex items-center space-x-2 text-sm">
+            <Search className="w-4 h-4 text-muted-foreground" />
+            <span className="text-muted-foreground italic">Search your clips...</span>
+          </div>
         </Card>
       ),
     },
     {
       icon: FolderSync,
-      title: "Cross-Platform Support",
-      description: "Works seamlessly on Linux, macOS, and Windows. Uses Python with simple dependencies - just pip install and you're ready to go.",
+      title: "Dark Mode UI",
+      description: "Beautiful dark mode interface with modern design. Selected clips highlighted with white background for better readability. Rounded corners for smooth edges.",
       gradient: "from-green-500 to-accent-blue",
       extra: (
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-accent-gold/20 rounded-lg flex items-center justify-center">
-            <span className="text-accent-gold text-sm">🐧</span>
+          <div className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center border border-gray-700">
+            <span className="text-white text-xs">🌙</span>
           </div>
-          <div className="w-8 h-8 bg-muted/50 rounded-lg flex items-center justify-center">
-            <span className="text-muted-foreground text-sm">🍎</span>
-          </div>
-          <div className="w-8 h-8 bg-accent-blue/20 rounded-lg flex items-center justify-center">
-            <span className="text-accent-blue text-sm">🪟</span>
-          </div>
+          <span className="text-sm text-muted-foreground">Modern Dark Theme</span>
         </div>
       ),
     },
     {
       icon: Clock,
-      title: "Auto-Start on Boot",
-      description: "Set up ClipSync to automatically start when your computer boots. Run silently in the background, capturing everything you copy.",
+      title: "Auto-Save & Settings",
+      description: "Automatic save - clips remain after app restarts. Refresh button on top right next to settings. Settings panel for future customization options.",
       gradient: "from-red-500 to-accent-purple",
       extra: (
         <Card className="bg-card/50 rounded-xl p-3 border border-border">
-          <code className="text-sm text-accent-blue">
-            ~/.config/autostart/ClipboardSaver.desktop
-          </code>
+          <div className="flex items-center justify-between text-sm">
+            <span className="text-muted-foreground">Auto-save:</span>
+            <span className="text-green-400">✓ Enabled</span>
+          </div>
         </Card>
       ),
     },
@@ -111,14 +110,14 @@ export default function Home() {
 
   // Single free app - no pricing plans needed
   const appFeatures = [
-    { name: "Unlimited clipboard items", included: true },
-    { name: "Password encryption", included: true },
+    { name: "Unlimited text clips storage", included: true },
+    { name: "One-click copying", included: true },
+    { name: "Password protection", included: true },
+    { name: "Instant search & filter", included: true },
+    { name: "Dark mode interface", included: true },
     { name: "Local offline storage", included: true },
-    { name: "Windows & Linux support", included: true },
-    { name: "Auto-save background mode", included: true },
-    { name: "Clean GUI viewer", included: true },
-    { name: "Terminal commands", included: true },
-    { name: "Auto-start on boot", included: true },
+    { name: "Automatic save on restart", included: true },
+    { name: "Settings & refresh panel", included: true },
   ];
 
   return (
@@ -142,15 +141,15 @@ export default function Home() {
 
             {/* Main Heading */}
             <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-              Local Clipboard
+              Free Clipboard
               <br />
-              <span className="gradient-text">Saver + Viewer</span>
+              <span className="gradient-text">Manager</span>
             </h1>
 
             {/* Subheading */}
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              Auto-saves everything you copy in background. Password-encrypted, 100% offline, 
-              with silent terminal restore and clean GUI viewer.
+              Save unlimited text clips with one-click copying. Password-protected, dark mode UI, 
+              with instant search and local offline storage.
             </p>
 
             {/* CTA Buttons */}
