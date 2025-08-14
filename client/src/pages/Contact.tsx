@@ -47,30 +47,37 @@ export default function Contact() {
     
     if (!formData.gdprConsent) {
       toast({
-        title: "GDPR Consent Required",
+        title: "Privacy Agreement Required",
         description: "Please agree to our privacy policy to continue.",
         variant: "destructive",
       });
       return;
     }
 
-    // In a real application, this would submit to your backend
-    toast({
-      title: "Message Sent Successfully",
-      description: "Thank you for contacting us. We'll get back to you within 24 hours.",
-      variant: "default",
-    });
+    // Create Gmail compose URL
+    const subject = encodeURIComponent(`ClipSync Support: ${formData.subject}`);
+    const body = encodeURIComponent(`
+Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company}
+Inquiry Type: ${formData.inquiryType}
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      subject: "",
-      message: "",
-      inquiryType: "",
-      newsletter: false,
-      gdprConsent: false,
+Message:
+${formData.message}
+
+---
+This message was sent from ClipSync contact form.
+    `);
+    
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=vivekrvt84@gmail.com&su=${subject}&body=${body}`;
+    
+    // Open Gmail in new tab
+    window.open(gmailUrl, '_blank');
+    
+    toast({
+      title: "Redirecting to Gmail",
+      description: "Opening Gmail to send your message to Vivek Rawat.",
+      variant: "default",
     });
   };
 
@@ -79,24 +86,24 @@ export default function Contact() {
       icon: Mail,
       title: "Email Support",
       description: "Get help with technical issues and general inquiries",
-      contact: "support@clipsync.app",
-      availability: "24/7 response within 4 hours",
+      contact: "vivekrvt84@gmail.com",
+      availability: "Response within 24-48 hours",
       primary: true,
     },
     {
       icon: MessageCircle,
-      title: "Live Chat",
-      description: "Instant support for urgent issues",
-      contact: "Available in app",
-      availability: "Mon-Fri, 9 AM - 5 PM UTC",
+      title: "Free Support",
+      description: "100% free support for all users",
+      contact: "No paid support needed",
+      availability: "Community-based help",
       primary: false,
     },
     {
       icon: Phone,
-      title: "Enterprise Support",
-      description: "Dedicated phone support for enterprise customers",
-      contact: "+1 (555) 123-4567",
-      availability: "Business hours only",
+      title: "Open Source",
+      description: "Report issues on GitHub repository",
+      contact: "GitHub Issues",
+      availability: "Open source community",
       primary: false,
     },
   ];
@@ -139,13 +146,13 @@ export default function Contact() {
             Contact & Support
           </Badge>
           <h1 className="text-4xl md:text-6xl font-black mb-6">
-            We're Here to
+            Contact
             <br />
-            <span className="gradient-text">Help You</span>
+            <span className="gradient-text">Vivek Rawat (RVT)</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Have questions about ClipSync? Need technical support? Want to discuss enterprise solutions? 
-            Our team is ready to assist you.
+            Have questions about ClipSync? Need technical support? Report issues?
+            Contact the creator directly via email.
           </p>
         </div>
       </section>

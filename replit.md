@@ -23,6 +23,13 @@ ClipSync is a 100% free and open source clipboard manager created by Vivek Rawat
 - **Platform support**: Updated to show Windows and Linux only
 - **UI details**: Added details about dark mode, white background for selected clips, rounded corners, clean interface
 
+### Contact & Documentation Update
+- **Support email**: Updated to vivekrvt84@gmail.com throughout the site
+- **Gmail integration**: Contact form now redirects to Gmail with pre-filled message to Vivek
+- **Updated docs**: FAQ and guides now reflect real app functionality (local storage, password protection, offline operation)
+- **HTML pages created**: Separate HTML files for features.html, security.html, download.html, docs.html, contact.html for direct access
+- **Removed enterprise references**: Updated contact methods to reflect free support and open source nature
+
 ### Download Links Added
 - Linux (.deb): https://drive.google.com/file/d/1RTgAfIL8G-HhNpVVwLo_-u9pJy9C9AXv/view
 - Windows: https://drive.google.com/file/d/1XMqhRZPbnYYs898RalbmoWVJNS7bc7sw/view?usp=sharing
