@@ -61,7 +61,7 @@ export default function DownloadPage() {
       size: "~2MB",
       available: true,
       gradient: "from-accent-gold/20 to-accent-gold/20",
-      downloadUrl: "https://drive.google.com/file/d/1RTgAfIL8G-HhNpVVwLo_-u9pJy9C9AXv/view",
+      downloadUrl: "https://drive.google.com/file/d/1RTgAfIL8G-HhNpVVwLo_-u9pJy9C9AXv/view?usp=drive_link",
     },
     {
       name: "Windows",
@@ -88,10 +88,11 @@ export default function DownloadPage() {
     if (platform.storeUrl) {
       window.open(platform.storeUrl, "_blank");
     } else if (platform.downloadUrl) {
-      // In a real app, this would trigger the actual download
+      // Open the Google Drive download link in a new tab
+      window.open(platform.downloadUrl, "_blank");
       toast({
         title: "Download Started",
-        description: `ClipSync for ${platform.name} is now downloading...`,
+        description: `ClipSync for ${platform.name} download page opened. Click "Download" on Google Drive.`,
         variant: "default",
       });
     }
@@ -113,66 +114,87 @@ export default function DownloadPage() {
   };
 
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen pt-16 relative overflow-hidden">
+      {/* 3D Background Elements */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-32 left-16 w-28 h-28 morphing-blob animate-float-3d opacity-15" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-80 right-24 w-20 h-20 morphing-blob animate-bounce-3d opacity-20" style={{animationDelay: '3s'}}></div>
+        <div className="absolute bottom-60 left-1/3 w-24 h-24 morphing-blob animate-rotate-y opacity-10" style={{animationDelay: '5s'}}></div>
+        <div className="absolute bottom-40 right-1/4 w-16 h-16 morphing-blob animate-scale-pulse opacity-25" style={{animationDelay: '2s'}}></div>
+      </div>
+      
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-background via-card/30 to-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="mb-8">
-            <Download className="w-4 h-4 mr-2" />
-            Download ClipSync
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-black mb-6">
-            Get Started with
-            <br />
-            <span className="gradient-text">ClipSync</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            Available on all major platforms. Choose your operating system to get started
-            with the most secure clipboard manager.
-          </p>
-          {detectedPlatform && (
-            <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full">
-              <CheckCircle className="w-4 h-4" />
-              <span className="text-sm">We detected you're using {detectedPlatform}</span>
-            </div>
-          )}
+      <section className="py-24 bg-gradient-to-br from-background via-card/30 to-background relative overflow-hidden">
+        {/* Enhanced 3D Background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-float-3d"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent-blue/10 rounded-full blur-3xl animate-float-3d" style={{animationDelay: '-4s'}}></div>
+          <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-accent-gold/5 rounded-full blur-3xl animate-scale-pulse" style={{animationDelay: '3s'}}></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="animate-fade-in-up">
+            <Badge variant="secondary" className="mb-8 glass-effect border-white/10 px-4 py-2 card-3d">
+              <Download className="w-4 h-4 mr-2" />
+              Download ClipSync
+            </Badge>
+            <h1 className="text-4xl md:text-6xl font-black mb-6 text-glow">
+              Get Started with
+              <br />
+              <span className="gradient-text">ClipSync</span>
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+              Available on all major platforms. Choose your operating system to get started
+              with the most secure clipboard manager.
+            </p>
+            {detectedPlatform && (
+              <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full glass-effect border-primary/20 animate-pulse-glow">
+                <CheckCircle className="w-4 h-4" />
+                <span className="text-sm">We detected you're using {detectedPlatform}</span>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
       {/* Download Cards */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            {platforms.map((platform) => (
-              <PlatformCard
+            {platforms.map((platform, index) => (
+              <div 
                 key={platform.name}
-                icon={platform.icon}
-                name={platform.name}
-                description={platform.description}
-                version={platform.version}
-                size={platform.size}
-                buttonText={platform.available ? "Download" : "Notify Me"}
-                available={platform.available}
-                gradient={platform.gradient}
-                onDownload={() => handleDownload(platform)}
-              />
+                className="animate-fade-in-up card-3d"
+                style={{animationDelay: `${0.3 * index}s`}}
+              >
+                <PlatformCard
+                  icon={platform.icon}
+                  name={platform.name}
+                  description={platform.description}
+                  version={platform.version}
+                  size={platform.size}
+                  buttonText={platform.available ? "Download" : "Notify Me"}
+                  available={platform.available}
+                  gradient={platform.gradient}
+                  onDownload={() => handleDownload(platform)}
+                />
+              </div>
             ))}
           </div>
 
           {/* Quick Download Button for Detected Platform */}
           {detectedPlatform && (
-            <div className="text-center mb-16">
-              <Card className="glass-effect rounded-2xl p-8 max-w-md mx-auto border-primary/50">
+            <div className="text-center mb-16 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
+              <Card className="glass-effect rounded-2xl p-8 max-w-md mx-auto border-primary/50 card-3d floating-element">
                 <CardContent className="p-0">
-                  <h3 className="text-2xl font-bold mb-4">Quick Download</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-glow">Quick Download</h3>
                   <p className="text-muted-foreground mb-6">
                     Download ClipSync for {detectedPlatform}
                   </p>
                   <Button
                     size="lg"
-                    className="btn-primary w-full"
+                    className="btn-primary w-full rotating-border"
                     onClick={() => {
-                      const platform = platforms.find(p => p.name === detectedPlatform);
+                      const platform = platforms.find(p => p.name.includes(detectedPlatform));
                       if (platform) handleDownload(platform);
                     }}
                   >

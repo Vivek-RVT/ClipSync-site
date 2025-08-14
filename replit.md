@@ -6,6 +6,16 @@ ClipSync is a 100% free and open source clipboard manager created by Vivek Rawat
 
 ## Recent Changes (August 14, 2025)
 
+### Major Update: 3D Elements & Creative Animations (Latest)
+- **Enhanced CSS Framework**: Added comprehensive 3D animation system with 15+ new animation classes
+- **3D Visual Effects**: Implemented morphing blobs, floating elements, rotating borders, and perspective transformations
+- **Updated Download Links**: Fixed Google Drive URLs for Windows and Linux downloads with proper ?usp= parameters
+- **Interactive Components**: All cards, buttons, and UI elements now have 3D hover effects and smooth transitions
+- **Background Animations**: Added animated geometric shapes and particle-like elements throughout pages
+- **Performance Optimized**: Used CSS transforms and hardware acceleration for smooth 60fps animations
+- **Enhanced UX**: Staggered animation delays, glass morphism effects, and dynamic gradient shifts
+- **3D Navigation**: Logo, buttons, and navigation elements have enhanced 3D perspective effects
+
 ### Major Update: Removed Pricing, Made App Free
 - **Removed all pricing tiers**: App is now 100% free with no subscriptions or paid plans
 - **Updated download links**: Added real Google Drive download links for Windows (.exe) and Linux (.deb)
@@ -40,8 +50,8 @@ ClipSync is a 100% free and open source clipboard manager created by Vivek Rawat
 - **Keyword targeting**: Focused on "free clipboard manager", "vivek rawat", platform-specific terms
 - **Content optimization**: Proper heading hierarchy and semantic HTML structure
 
-### Download Links Added
-- Linux (.deb): https://drive.google.com/file/d/1RTgAfIL8G-HhNpVVwLo_-u9pJy9C9AXv/view
+### Download Links Updated
+- Linux (.deb): https://drive.google.com/file/d/1RTgAfIL8G-HhNpVVwLo_-u9pJy9C9AXv/view?usp=drive_link
 - Windows: https://drive.google.com/file/d/1XMqhRZPbnYYs898RalbmoWVJNS7bc7sw/view?usp=sharing
 
 ## User Preferences

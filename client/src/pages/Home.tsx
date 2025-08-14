@@ -121,26 +121,39 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-20 left-10 w-32 h-32 morphing-blob animate-float-3d opacity-20"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 morphing-blob animate-bounce-3d opacity-15" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-40 left-1/4 w-28 h-28 morphing-blob animate-rotate-y opacity-10" style={{animationDelay: '4s'}}></div>
+        <div className="absolute bottom-20 right-1/3 w-20 h-20 morphing-blob animate-scale-pulse opacity-25" style={{animationDelay: '1s'}}></div>
+      </div>
+      
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-        {/* Animated Background */}
+        {/* Enhanced 3D Animated Background */}
         <div className="absolute inset-0 hero-gradient">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent-blue/20 rounded-full blur-3xl animate-float [animation-delay:-3s]"></div>
-          <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-accent-purple/20 rounded-full blur-3xl animate-float [animation-delay:-6s]"></div>
+          <div className="absolute top-20 left-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float-3d"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent-blue/20 rounded-full blur-3xl animate-float-3d" style={{animationDelay: '-3s'}}></div>
+          <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-accent-purple/20 rounded-full blur-3xl animate-float-3d" style={{animationDelay: '-6s'}}></div>
+          
+          {/* 3D Geometric Elements */}
+          <div className="absolute top-1/4 left-1/4 w-16 h-16 bg-gradient-to-br from-accent-gold/30 to-accent-blue/30 rotate-45 animate-pulse-glow" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-1/4 right-1/4 w-12 h-12 bg-gradient-to-tr from-accent-purple/40 to-primary/40 rounded-full animate-bounce-3d" style={{animationDelay: '3s'}}></div>
+          <div className="absolute top-3/4 left-1/3 w-8 h-20 bg-gradient-to-b from-accent-blue/25 to-transparent skew-x-12 animate-rotate-y" style={{animationDelay: '2s'}}></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="animate-slide-up">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+          <div className="animate-fade-in-up">
             {/* Hero Badge */}
-            <Badge variant="secondary" className="mb-8 glass-effect border-white/10 px-4 py-2">
+            <Badge variant="secondary" className="mb-8 glass-effect border-white/10 px-4 py-2 card-3d">
               <div className="w-2 h-2 bg-accent-gold rounded-full animate-pulse mr-2"></div>
               100% Free & Open Source • Created by Vivek Rawat (RVT)
             </Badge>
 
             {/* Main Heading */}
-            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight text-glow">
               Free Clipboard
               <br />
               <span className="gradient-text">Manager</span>
@@ -155,12 +168,12 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
               <Link href="/download">
-                <Button size="lg" className="btn-primary px-8 py-4 text-lg font-semibold group">
+                <Button size="lg" className="btn-primary px-8 py-4 text-lg font-semibold group rotating-border">
                   <Download className="w-5 h-5 mr-2 group-hover:translate-y-1 transition-transform" />
                   Download Free
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="px-8 py-4 text-lg font-semibold">
+              <Button variant="outline" size="lg" className="px-8 py-4 text-lg font-semibold card-3d glass-effect border-white/20">
                 <Play className="w-5 h-5 mr-2" />
                 Watch Demo
               </Button>
@@ -184,10 +197,10 @@ export default function Home() {
           </div>
 
           {/* Hero Visual */}
-          <div className="mt-16 animate-fade-in">
+          <div className="mt-16 animate-fade-in-up" style={{animationDelay: '0.5s'}}>
             <div className="relative max-w-4xl mx-auto">
               {/* Main App Window */}
-              <Card className="glass-effect rounded-3xl p-6 shadow-2xl border-white/10">
+              <Card className="glass-effect rounded-3xl p-6 shadow-2xl border-white/10 card-3d floating-element">
                 {/* App Header */}
                 <div className="flex items-center space-x-3 mb-6">
                   <div className="flex space-x-2">
@@ -210,7 +223,7 @@ export default function Home() {
 
                     {/* Clipboard Items */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer">
+                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer card-3d animate-slide-in-left" style={{animationDelay: '0.8s'}}>
                         <div className="flex items-center justify-between mb-2">
                           <Badge variant="secondary" className="text-accent-blue">
                             <Code className="w-3 h-3 mr-1" />
@@ -221,20 +234,18 @@ export default function Home() {
                         <p className="text-foreground text-sm">const greeting = "Hello, World!";</p>
                       </Card>
 
-                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer">
+                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer card-3d animate-slide-in-right" style={{animationDelay: '1s'}}>
                         <div className="flex items-center justify-between mb-2">
                           <Badge variant="secondary" className="text-accent-gold">
-                            <Image className="w-3 h-3 mr-1" />
-                            Image
+                            <FileText className="w-3 h-3 mr-1" />
+                            Document
                           </Badge>
                           <span className="text-muted-foreground text-xs">5 min ago</span>
                         </div>
-                        <div className="bg-muted rounded-lg h-12 flex items-center justify-center">
-                          <Image className="w-5 h-5 text-muted-foreground" />
-                        </div>
+                        <p className="text-foreground text-sm">Meeting notes from project sync...</p>
                       </Card>
 
-                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer">
+                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer card-3d animate-slide-in-left" style={{animationDelay: '1.2s'}}>
                         <div className="flex items-center justify-between mb-2">
                           <Badge variant="secondary" className="text-accent-purple">
                             <Link2 className="w-3 h-3 mr-1" />
@@ -242,18 +253,18 @@ export default function Home() {
                           </Badge>
                           <span className="text-muted-foreground text-xs">10 min ago</span>
                         </div>
-                        <p className="text-foreground text-sm">https://github.com/premium-repo</p>
+                        <p className="text-foreground text-sm">https://github.com/vivekrvt/clipsync</p>
                       </Card>
 
-                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer">
+                      <Card className="bg-card/50 rounded-2xl p-4 border-border hover:border-primary/50 transition-all cursor-pointer card-3d animate-slide-in-right" style={{animationDelay: '1.4s'}}>
                         <div className="flex items-center justify-between mb-2">
                           <Badge variant="secondary" className="text-green-400">
-                            <FileText className="w-3 h-3 mr-1" />
-                            File
+                            <Code className="w-3 h-3 mr-1" />
+                            JSON
                           </Badge>
                           <span className="text-muted-foreground text-xs">15 min ago</span>
                         </div>
-                        <p className="text-foreground text-sm">presentation.pdf</p>
+                        <p className="text-foreground text-sm">{"{ \"name\": \"ClipSync\", \"status\": \"active\" }"}</p>
                       </Card>
                     </div>
                   </div>
@@ -261,7 +272,7 @@ export default function Home() {
               </Card>
 
               {/* Floating Security Badge */}
-              <div className="absolute -top-4 -right-4 glass-effect rounded-2xl p-4 animate-glow border-white/10">
+              <div className="absolute -top-4 -right-4 glass-effect rounded-2xl p-4 animate-pulse-glow border-white/10 floating-element">
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
                   <span className="text-sm font-medium">Encrypted</span>
@@ -273,11 +284,17 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-card/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-card/30 relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 left-10 w-40 h-40 morphing-blob animate-float-3d opacity-10" style={{animationDelay: '3s'}}></div>
+          <div className="absolute bottom-1/4 right-10 w-32 h-32 morphing-blob animate-scale-pulse opacity-15" style={{animationDelay: '5s'}}></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-6">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-glow">
               Everything You Need in a
               <br />
               <span className="gradient-text">Clipboard Manager</span>
@@ -290,22 +307,27 @@ export default function Home() {
 
           {/* Feature Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature) => (
-              <FeatureCard
-                key={feature.title}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                gradient={feature.gradient}
+            {features.map((feature, index) => (
+              <div 
+                key={feature.title} 
+                className="animate-fade-in-up" 
+                style={{animationDelay: `${0.2 * index}s`}}
               >
-                {feature.extra}
-              </FeatureCard>
+                <FeatureCard
+                  icon={feature.icon}
+                  title={feature.title}
+                  description={feature.description}
+                  gradient={feature.gradient}
+                >
+                  {feature.extra}
+                </FeatureCard>
+              </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-12 animate-fade-in-up" style={{animationDelay: '1.5s'}}>
             <Link href="/features">
-              <Button size="lg" variant="outline" className="group">
+              <Button size="lg" variant="outline" className="group card-3d glass-effect border-white/20">
                 View All Features
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -315,11 +337,17 @@ export default function Home() {
       </section>
 
       {/* Free App Section */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 relative overflow-hidden">
+        {/* 3D Background Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-1/4 w-24 h-24 bg-gradient-to-br from-accent-gold/20 to-primary/20 rounded-full animate-bounce-3d" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-20 right-1/4 w-36 h-36 bg-gradient-to-tl from-accent-blue/15 to-accent-purple/15 rounded-full animate-rotate-y" style={{animationDelay: '4s'}}></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-6">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-glow">
               100% Free & 
               <span className="gradient-text"> Open Source</span>
             </h2>
@@ -329,24 +357,26 @@ export default function Home() {
           </div>
 
           {/* Single Feature Card */}
-          <div className="max-w-md mx-auto">
-            <PricingCard
-              name="ClipSync"
-              price="Free Forever"
-              description="Local clipboard manager with password encryption"
-              features={appFeatures}
-              buttonText="Download Now"
-              buttonVariant="default"
-              popular={true}
-              onButtonClick={() => {
-                window.location.href = "/download";
-              }}
-            />
+          <div className="max-w-md mx-auto animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+            <div className="card-3d">
+              <PricingCard
+                name="ClipSync"
+                price="Free Forever"
+                description="Local clipboard manager with password encryption"
+                features={appFeatures}
+                buttonText="Download Now"
+                buttonVariant="default"
+                popular={true}
+                onButtonClick={() => {
+                  window.location.href = "/download";
+                }}
+              />
+            </div>
           </div>
 
           {/* Free Forever Badge */}
-          <div className="text-center mt-12">
-            <div className="inline-flex items-center space-x-2 text-green-400">
+          <div className="text-center mt-12 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+            <div className="inline-flex items-center space-x-2 text-green-400 glass-effect rounded-full px-6 py-3 border border-green-400/20 animate-pulse-glow">
               <Shield className="w-5 h-5" />
               <span>100% Free Forever • No Registration Required</span>
             </div>
@@ -356,10 +386,15 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-primary via-accent-blue to-accent-purple relative overflow-hidden">
-        {/* Background Effects */}
+        {/* Enhanced 3D Background Effects */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-float-3d"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-float-3d" style={{animationDelay: '-3s'}}></div>
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-white/3 rounded-full blur-3xl animate-scale-pulse" style={{animationDelay: '2s'}}></div>
+          
+          {/* Geometric 3D Elements */}
+          <div className="absolute top-20 right-20 w-16 h-16 bg-white/10 rotate-45 animate-rotate-y" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-20 left-20 w-12 h-12 bg-white/15 rounded-full animate-bounce-3d" style={{animationDelay: '3s'}}></div>
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">

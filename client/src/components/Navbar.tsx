@@ -56,32 +56,34 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+          {/* Enhanced 3D Logo */}
           <Link href="/">
             <div className="flex items-center space-x-3 group cursor-pointer">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent-blue rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent-blue rounded-lg flex items-center justify-center card-3d floating-element">
                 <Clipboard className="w-4 h-4 text-white" />
               </div>
               <span className="text-xl font-bold gradient-text">ClipSync</span>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Enhanced 3D Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <NavLink key={item.name} href={item.href}>
-                {item.name}
-              </NavLink>
+            {navigation.map((item, index) => (
+              <div key={item.name} className="animate-fade-in" style={{animationDelay: `${0.1 * index}s`}}>
+                <NavLink href={item.href}>
+                  {item.name}
+                </NavLink>
+              </div>
             ))}
           </div>
 
-          {/* Desktop CTA Buttons */}
+          {/* Enhanced Desktop CTA & Theme Toggle */}
           <div className="hidden md:flex items-center space-x-4">
             <Button
               variant="ghost"
               size="sm"
               onClick={toggleTheme}
-              className="w-9 h-9 p-0"
+              className="w-9 h-9 p-0 card-3d glass-effect border-white/10"
             >
               {theme === "dark" ? (
                 <Sun className="w-4 h-4" />
@@ -90,12 +92,12 @@ export function Navbar() {
               )}
             </Button>
             <Link href="/contact">
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="card-3d">
                 Contact
               </Button>
             </Link>
             <Link href="/download">
-              <Button size="sm" className="btn-primary">
+              <Button size="sm" className="btn-primary rotating-border">
                 Download Free
               </Button>
             </Link>
